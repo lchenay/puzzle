@@ -1,0 +1,21 @@
+{
+  "name": "logics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "lodash": "^4.17.21",
+    "p-limit": "^4.0.0",
+    "p-queue": "^7.3.0",
+    "pdfjs": "^2.4.7",
+    "pdfkit": "^0.13.0",
+    "puppeteer": "^19.4.1"
+  }
+}
