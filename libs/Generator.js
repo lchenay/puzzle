@@ -31,7 +31,7 @@ export class Generator {
         files: []
     }
 
-    queue = pLimit(16);
+    queue = pLimit(4);
 
     init() {
         this.puzzles.push(...ChessPuzzle.all());
@@ -40,9 +40,10 @@ export class Generator {
     }
 
     async readDB() {
-        if (await fs.exists('./data/db.json')) {
+        // check if files exists
+        //if (await fs.exists('./data/db.json')) {
             this.db = JSON.parse(await fs.readFile('./data/db.json')) || {};
-        }
+        //}
 
         if (!this.db.puzzles) this.db.puzzles = {};
         if (!this.db.files) this.db.files = [];
@@ -184,7 +185,5 @@ export class Generator {
             doc.text(`${puzzle}: More ${stats.more}, Less ${stats.less}, Generated ${stats.generated}, Finished ${stats.finished}, Currents ${files.length}`)
         });
         doc.end();
-
-        await exec('cp output.pdf /Users/lchenay/Dropbox/morning/output.pdf');
     }
 }
